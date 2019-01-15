@@ -5,42 +5,81 @@ import commentIcon from '../../assets/comment.png';
 
 import './PostContainer.css';
 
-function Post(props) {
+class Post extends React.Component {
+  constructor(props) {
+    super();
+    this.props = props;
+    this.state = {
+      likes: 0,
+      userLiked: false  // hard coded for now, maybe it would come from api call?
+    };
+  }
 
-  return (
-    <div className="post">
-      <div className="post-header">
-        <img 
-          className="post-thumbnail" 
-          src={props.postThumbnailUrl}
-          alt=""
-        />
-        {props.postUsername}
-      </div>
-      <img
-        className="post-img"
-        src={props.postImageUrl}
-        alt=""
-      />
-      <div className="post-footer">
-        <div className="post-footer-icons">
-          <img
-            className="post-footer-heart"
-            src={heartIcon}
+  componentDidMount() {
+    // this is where api call would go, make sure to update userLiked if that ever gets pulled in from somewhere
+    this.setState({
+      likes: this.props.postLikes,
+    });
+  }
+
+  toggleLike(userLiked) {
+    // use prevState here to handle likes value
+    if (userLiked){
+      console.log("toggleLike OFF");
+      // user has already liked, decrement, toggle userLiked
+      this.setState(prevState => ({
+        likes: --prevState.likes,
+        userLiked: false
+      }));
+    } else {
+      console.log("toggleLike ON");
+      // user has NOT liked, increment likes, toggle userLiked
+      this.setState(prevState => ({
+        likes: ++prevState.likes,
+        userLiked: true
+      }));
+    }
+  }
+  
+  render() {
+    const likedClass = `liked-${this.state.userLiked}`;
+
+    return (
+      <div className="post">
+        <div className="post-header">
+          <img 
+            className="post-thumbnail" 
+            src={this.props.postThumbnailUrl}
             alt=""
           />
-          <img
-          className="post-footer-comment"
-          src={commentIcon}
+          {this.props.postUsername}
+        </div>
+        <img
+          className="post-img"
+          src={this.props.postImageUrl}
           alt=""
         />
-        </div>
-        <div className="post-footer-likes">
-          {props.postLikes} likes
+        <div className="post-footer">
+          <div className="post-footer-icons">
+            <img
+              className={`post-footer-heart ${likedClass}`}
+              src={heartIcon}
+              alt=""
+              onClick={() => this.toggleLike(this.state.userLiked)}
+            />
+            <img
+            className="post-footer-comment"
+            src={commentIcon}
+            alt=""
+          />
+          </div>
+          <div className="post-footer-likes">
+            {this.state.likes} likes
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 Post.propTypes = {

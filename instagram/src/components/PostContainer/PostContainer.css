@@ -34,6 +34,12 @@
   margin-bottom: 5px;
 }
 
+.post-footer .liked-true {
+  /* since the image source is a .svg, use a weird method to change color */
+  /* used to compute filter value: https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(20%) sepia(95%) saturate(6509%) hue-rotate(357deg) brightness(103%) contrast(119%); 
+}
+
 .post-footer-likes {
   font-weight: bold;
 
