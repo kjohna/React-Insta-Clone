@@ -25,10 +25,10 @@ class CommentSection extends React.Component {
     );
   }
 
-  addComment = (e) => {
+  addNewComment = (e) => {
     // handler function to add comment
     e.preventDefault();
-    console.log("addcomment", this.state.newCommentText);
+    // console.log("addNewcomment", this.state.newCommentText);
     this.setState(
       {
         commentData: [
@@ -47,7 +47,7 @@ class CommentSection extends React.Component {
     const comments = this.state.commentData.map((commentData, i) => {
       return <Comment key={i} commentData={commentData} />
     });
-    console.log("commentSection render");
+    // console.log("commentSection render");
     return (
       <div className="comment-section">
         {comments}
@@ -55,7 +55,7 @@ class CommentSection extends React.Component {
           {moment(this.props.postTimestamp, 'MMMM Do YYYY, hh:mm:ss a').fromNow()} {/*  "July 17th 2017, 12:42:40 pm" */}
         </div>
         <div className="new-comment-container">
-          <form onSubmit={this.addComment}>
+          <form onSubmit={this.addNewComment}>
             <input 
               type="text" 
               placeholder="Add a comment..."
@@ -72,8 +72,7 @@ class CommentSection extends React.Component {
 }
 
 CommentSection.propTypes = {
-  postTimestamp: PropTypes.string,
-  newCommentValue: PropTypes.string
+  postTimestamp: PropTypes.string
 }
 
 CommentSection.defaultProps = {
