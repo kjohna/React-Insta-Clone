@@ -9,6 +9,7 @@ function CommentSection(props) {
   const comments = props.commentData.map((commentData, i) => {
     return <Comment key={i} commentData={commentData} />
   });
+  
   return (
     <div className="comment-section">
       {comments}
