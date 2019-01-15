@@ -14,7 +14,6 @@ function PostContainer(props) {
         postImageUrl={props.post.imageUrl}
         postLikes={props.post.likes}
       />
-    COMMENT SECTION:
       <CommentSection 
         commentData={props.post.comments}
         postTimestamp={props.post.timestamp} 

@@ -10,10 +10,14 @@ function CommentSection(props) {
   return (
     <div className="comment-section">
       {comments}
-      {props.postTimestamp}
-      <form className="new-comment-form">
-        <input type="text" defaultValue="New Comment"/>
-      </form>
+      <div className="timestamp">
+        {props.postTimestamp}
+      </div>
+      <div className="new-comment-container">
+        <form>
+          <input type="text" placeholder="Add a comment..."/>
+        </form>
+      </div>
     </div>
   );
 }

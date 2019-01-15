@@ -6,8 +6,10 @@ function Comment(props) {
   // console.log(props);
   return (
     <div className="comment">
-      USER: {props.commentData.username}
-      COMMENT: {props.commentData.text}
+      <span className="comment-username">
+        {props.commentData.username}
+      </span>
+        {props.commentData.text}
     </div>
   );
 }
