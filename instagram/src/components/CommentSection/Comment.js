@@ -15,7 +15,8 @@ function Comment(props) {
 Comment.propTypes = {
   commentData: PropTypes.shape({
     username: PropTypes.string,
-    text: PropTypes.string
+    text: PropTypes.string,
+    timestamp: PropTypes.string
   })
 }
 

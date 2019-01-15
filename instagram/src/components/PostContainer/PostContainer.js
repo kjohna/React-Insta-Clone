@@ -8,16 +8,17 @@ function PostContainer(props) {
 
   return (
     <div className="post-container">
-    POST:
       <Post 
         postUsername={props.post.username} 
         postThumbnailUrl={props.post.thumbnailUrl}
         postImageUrl={props.post.imageUrl}
         postLikes={props.post.likes}
-        postTimestamp={props.post.timestamp}
       />
     COMMENT SECTION:
-      <CommentSection commentData={props.post.comments} />
+      <CommentSection 
+        commentData={props.post.comments}
+        postTimestamp={props.post.timestamp} 
+      />
     </div>
   );
 }
