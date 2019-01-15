@@ -50,4 +50,11 @@ Post.propTypes = {
   postLikes: PropTypes.number
 }
 
+Post.defaultProps = {
+  postUsername: '',
+  postThumbnailUrl: '',
+  postImageUrl: '',
+  postLikes: 0
+}
+
 export default Post;

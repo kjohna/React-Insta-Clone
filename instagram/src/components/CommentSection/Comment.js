@@ -22,4 +22,12 @@ Comment.propTypes = {
   })
 }
 
+Comment.defaultProps = {
+  commentData: {
+    username: '',
+    text: '',
+    timestamp: ''
+  }
+}
+
 export default Comment;
