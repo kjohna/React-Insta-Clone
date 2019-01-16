@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       postData: [],
+      searchText: ''
     }
   }
 
@@ -22,14 +23,33 @@ class App extends Component {
     });
   }
 
-  render() {
-    const posts = this.state.postData.map(post => {
-      return <PostContainer key={post.timestamp} post={post} />
+  handleSearchInput = (e) => {
+    console.log("search input ", e.target.value);
+    // if anything in this.state.searchText, filter for username contains searchText otherwise return all posts
+    const searchResults = this.state.searchText.length > 0 ? 
+      dummyData.filter(post => post.username.includes(this.state.searchText))
+    : dummyData;
+
+    this.setState({
+      postData: searchResults,
+      [e.target.name]: e.target.value
     });
+  }
+
+  render() {
+    console.log(this.state.postData);
+    const posts = this.state.postData.length > 0 ? 
+      this.state.postData.map(post => {
+        return <PostContainer key={post.timestamp} post={post} />
+      }) :
+      null;
 
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar 
+          handleSearchInput={this.handleSearchInput}
+          searchText={this.state.searchText}
+        />
         {posts}
       </div>
     );

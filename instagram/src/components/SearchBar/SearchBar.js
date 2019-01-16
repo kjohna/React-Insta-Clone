@@ -15,8 +15,17 @@ function SearchBar(props) {
         <img className="logo-camera" src={cameraIcon} alt="" />
         <img className="logo-logo" src={igLogo} alt="" />
       </div>
-      <form className="search-form">
-        <input type="text" placeholder="&#x1F50D; Search"/>
+      <form 
+        className="search-form" 
+        onSubmit={(e)=> {e.preventDefault()}}>
+        <input 
+          type="text" 
+          placeholder="&#x1F50D; Search"
+          name="searchText"
+          onChange={(e) => props.handleSearchInput(e)}
+          value={props.searchText}
+          autoComplete="off"
+        />
       </form>
       <div className="prefs-icons">
         <img className="prefs-compass" src={compassIcon} alt="" />
