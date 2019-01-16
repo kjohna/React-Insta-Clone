@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import authenticate from './components/authentication/authenticate';
 import PostsPage from './components/PostContainer/PostsPage';
 
 import './App.css';
@@ -21,10 +22,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <PostsPage />
+        <AuthComponent />
       </div>
     );
   }
 }
+
+const AuthComponent = authenticate(PostsPage);  // AuthComponent gets set to PostsPage
 
 export default App;
