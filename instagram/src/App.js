@@ -24,12 +24,12 @@ class App extends Component {
   }
 
   handleSearchInput = (e) => {
-    console.log("search input ", e.target.value);
+    // console.log("search input ", e.target.value.length);
     // if anything in this.state.searchText, filter for username contains searchText otherwise return all posts
-    const searchResults = this.state.searchText.length > 0 ? 
-      dummyData.filter(post => post.username.includes(this.state.searchText))
+    const searchResults = e.target.value.length > 0 ? 
+      dummyData.filter(post => post.username.includes(e.target.value))
     : dummyData;
-
+    // console.log(searchResults);
     this.setState({
       postData: searchResults,
       [e.target.name]: e.target.value
