@@ -6,8 +6,10 @@ function Comment(props) {
   // console.log(props);
   return (
     <div className="comment">
-      USER: {props.commentData.username}
-      COMMENT: {props.commentData.text}
+      <span className="comment-username">
+        {props.commentData.username}
+      </span>
+        {props.commentData.text}
     </div>
   );
 }
@@ -15,8 +17,17 @@ function Comment(props) {
 Comment.propTypes = {
   commentData: PropTypes.shape({
     username: PropTypes.string,
-    text: PropTypes.string
+    text: PropTypes.string,
+    timestamp: PropTypes.string
   })
+}
+
+Comment.defaultProps = {
+  commentData: {
+    username: '',
+    text: '',
+    timestamp: ''
+  }
 }
 
 export default Comment;

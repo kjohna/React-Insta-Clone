@@ -5,21 +5,22 @@ import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
 function PostContainer(props) {
-
+  // console.log("postcontainer", props);
   return (
     <div className="post-container">
-    POST:
       <Post 
         postUsername={props.post.username} 
         postThumbnailUrl={props.post.thumbnailUrl}
         postImageUrl={props.post.imageUrl}
         postLikes={props.post.likes}
+      />
+      <CommentSection 
+        commentData={props.post.comments}
         postTimestamp={props.post.timestamp}
       />
-    COMMENT SECTION:
-      <CommentSection commentData={props.post.comments} />
     </div>
   );
+  
 }
 
 export default PostContainer;
