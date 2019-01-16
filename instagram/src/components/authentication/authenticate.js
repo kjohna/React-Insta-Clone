@@ -1,9 +1,23 @@
 import React from 'react';
 
-const authenticate = AuthArg1 => 
+const authenticate = App => LoginPage =>
   class extends React.Component {
+    constructor(props) {
+      super();
+      this.state = {
+        loggedIn: false
+      }
+      this.props = props;
+      // console.log(this.props);
+    }
+
+    componentDidMount() {
+      if (localStorage.getItem('userLoggedIn'));
+    }
+
     render() {
-      return <AuthArg1 />;
+      if(this.state.loggedIn) return <App />;
+      return <LoginPage />
     }
   }
 

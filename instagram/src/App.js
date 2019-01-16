@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import authenticate from './components/authentication/authenticate';
+import Login from './components/Login/Login';
 import PostsPage from './components/PostContainer/PostsPage';
 
 import './App.css';
 
 class App extends Component {
-  constructor(){
+  constructor(props){
     super();
     this.state = {
       
     }
+    this.props = props;
   }
 
   componentDidMount() {
@@ -22,12 +24,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <AuthComponent />
+        <PostsPage />
       </div>
     );
   }
 }
 
-const AuthComponent = authenticate(PostsPage);  // AuthComponent gets set to PostsPage
-
-export default App;
+export default authenticate(App)(Login);
