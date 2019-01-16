@@ -25,14 +25,14 @@ class Post extends React.Component {
   toggleLike(userLiked) {
     // use prevState here to handle likes value
     if (userLiked){
-      console.log("toggleLike OFF");
+      // console.log("toggleLike OFF");
       // user has already liked, decrement, toggle userLiked
       this.setState(prevState => ({
         likes: --prevState.likes,
         userLiked: false
       }));
     } else {
-      console.log("toggleLike ON");
+      // console.log("toggleLike ON");
       // user has NOT liked, increment likes, toggle userLiked
       this.setState(prevState => ({
         likes: ++prevState.likes,

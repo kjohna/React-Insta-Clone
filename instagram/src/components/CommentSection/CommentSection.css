@@ -31,3 +31,9 @@
   font-size: 14px;
   border: none;
 }
+
+.new-comment-container input:focus {
+  color: black;
+  outline: none;
+  box-shadow: 0px 0px 5px gray;
+}

@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.postData);
+    // console.log(this.state.postData);
     const posts = this.state.postData.length > 0 ? 
       this.state.postData.map(post => {
         return <PostContainer key={post.timestamp} post={post} />
