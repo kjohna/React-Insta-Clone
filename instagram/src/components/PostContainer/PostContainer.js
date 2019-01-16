@@ -15,8 +15,9 @@ function PostContainer(props) {
         postLikes={props.post.likes}
       />
       <CommentSection 
-        commentData={props.post.comments}
-        postTimestamp={props.post.timestamp}
+        post={props.post}
+        commentData={props.post.comments} // shouldn't need this when done
+        postTimestamp={props.post.timestamp} // shouldn't need this when done
       />
     </div>
   );

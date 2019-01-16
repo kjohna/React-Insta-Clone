@@ -9,11 +9,20 @@ class CommentSection extends React.Component {
   constructor(props){
     super();
     this.props = props;
-    // console.log("commentsection", props);
+    // console.log("comment section", props);
     this.state = {
-      commentData: this.props.commentData,
+      commentData: [],
+      post: {},
       newCommentText: ""
     };
+  }
+
+  componentDidMount() {
+    // console.log("comment section CDM ")
+    this.setState({
+      commentData: this.props.post.comments,
+      post: this.props.post
+    });
   }
 
   handleInput = (e) => {
@@ -28,25 +37,30 @@ class CommentSection extends React.Component {
   addNewComment = (e) => {
     // handler function to add comment
     e.preventDefault();
-    // console.log("addNewcomment", this.state.newCommentText);
+    // console.log("addNewcomment", this.state.post.comments);
+    const updatedPost = this.state.post;
+    updatedPost.comments = [...this.state.post.comments,
+      {
+        username: "testusername",
+        text: this.state.newCommentText
+      }
+    ];
     this.setState(
       {
-        commentData: [
-          ...this.state.commentData,
-          {
-            username: "testusername",
-            text: this.state.newCommentText
-          }
-        ],
+        updatedPost,
         newCommentText: "" // reset input text
       }
     );
   }  
 
   render() {
-    const comments = this.state.commentData.map((commentData, i) => {
-      return <Comment key={i} commentData={commentData} />
-    });
+    // console.log("comment section state ", Object.keys(this.state.post).length);
+    const comments = Object.keys(this.state.post).length ?
+      this.state.post.comments.map((commentData, i) => {
+        return <Comment key={i} commentData={commentData} />
+      }) :
+      null;
+
     // console.log("commentSection render");
     return (
       <div className="comment-section">
