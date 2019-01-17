@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import Post from './Post';
 import CommentSection from '../CommentSection/CommentSection';
 
-import './PostContainer.css';
-
 const PostContainerStyled = styled.div`
   margin: 30px auto 0 auto;
   border: 1px solid #e7e7e7;
