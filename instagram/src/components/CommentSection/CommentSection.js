@@ -1,9 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import styled from 'styled-components';
 import Comment from './Comment';
 
-import './CommentSection.css'
+const CommentSectionStyled = styled.div`
+  padding: 15px 15px 0 15px;
+`
+const TimeStampStyled = styled.div`
+  color: #9c9c9c;
+  font-size: 14px;
+  padding: 5px 0 10px 0;
+`
+const NewCommentContainerStyled = styled.div`
+  width: 100%;
+  border-top: 1px solid #e7e7e7;
+`
+const NewCommentInput = styled.input`
+  width: 100%;
+  height: 50px;
+  color: #9c9c9c;
+  font-size: 14px;
+  border: none;
+
+  &:focus {
+    color: black;
+    outline: none;
+    box-shadow: 0px 0px 5px gray;
+  }
+`
 
 class CommentSection extends React.Component {
   constructor(props){
@@ -84,14 +109,14 @@ class CommentSection extends React.Component {
 
     // console.log("commentSection render");
     return (
-      <div className="comment-section">
+      <CommentSectionStyled className="comment-section">
         {comments}
-        <div className="timestamp">
+        <TimeStampStyled className="timestamp">
           {moment(this.props.postTimestamp, 'MMMM Do YYYY, hh:mm:ss a').fromNow()} {/*  "July 17th 2017, 12:42:40 pm" */}
-        </div>
-        <div className="new-comment-container">
+        </TimeStampStyled>
+        <NewCommentContainerStyled className="new-comment-container">
           <form onSubmit={this.addNewComment}>
-            <input 
+            <NewCommentInput 
               type="text" 
               placeholder="Add a comment..."
               name="newCommentText"
@@ -100,8 +125,8 @@ class CommentSection extends React.Component {
               autoComplete="off"
             />
           </form>
-        </div>
-      </div>
+        </NewCommentContainerStyled>
+      </CommentSectionStyled>
     );
   }
 }
