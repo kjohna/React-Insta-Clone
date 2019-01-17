@@ -22,6 +22,7 @@ const NewCommentInput = styled.input`
   color: #9c9c9c;
   font-size: 14px;
   border: none;
+  border-radius: 3px;
 
   &:focus {
     color: black;

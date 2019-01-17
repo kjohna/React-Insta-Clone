@@ -42,7 +42,6 @@ const ImgSearchBar = styled.img`
 
 const SearchForm = styled.form`
   width: 25%;
-  }
 `
 
 const SearchInput = styled.input`

@@ -6,7 +6,7 @@ import CommentSection from '../CommentSection/CommentSection';
 const PostContainerStyled = styled.div`
   margin: 30px auto 0 auto;
   border: 1px solid #e7e7e7;
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: 0px 0px 5px lightgray;
   width: 65%;
 `
