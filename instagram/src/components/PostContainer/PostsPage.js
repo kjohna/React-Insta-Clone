@@ -11,7 +11,8 @@ class PostsPage extends Component {
     this.props = props;
     this.state = {
       postData: [],
-      searchText: ''
+      searchText: '',
+      currUser: ""
     }
   }
 
@@ -22,9 +23,10 @@ class PostsPage extends Component {
     localStorage.getItem('instaCloneData') ? 
       postData = JSON.parse(localStorage.getItem('instaCloneData')) :
       localStorage.setItem('instaCloneData', JSON.stringify(postData));
-        // the fetch would call next line once the 'message' data was returned
+    // the fetch would call next line once the 'message' data was returned
     this.setState({
-      postData: postData
+      postData: postData,
+      currUser: localStorage.getItem('instaCloneUser')
     });
   }
 
@@ -45,12 +47,12 @@ class PostsPage extends Component {
     console.log("PostsPage: render");
     const posts = this.state.postData.length > 0 ? 
       this.state.postData.map(post => {
-        return <PostContainer key={post.timestamp} post={post} currUser={this.props.currUser}/>
+        return <PostContainer key={post.timestamp} post={post} currUser={this.state.currUser}/>
       }) :
       null;
 
     return (
-      <div className="posts-page">
+      <div className="posts-page" currUser={this.state.currUser}>
         <SearchBar 
           handleSearchInput={this.handleSearchInput}
           searchText={this.state.searchText}

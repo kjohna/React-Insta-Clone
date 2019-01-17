@@ -24,10 +24,12 @@ class App extends Component {
     // console.log("user", this.state.currUser);
     return (
       <div className="App">
-        <PostsPage currUser={this.state.currUser}/>
+        <ConditionalRender/>
       </div>
     );
   }
 }
 
-export default authenticate(App)(Login);
+const ConditionalRender = authenticate(PostsPage)(Login);
+
+export default App;
