@@ -9,22 +9,22 @@ class App extends Component {
   constructor(props){
     super();
     this.state = {
-      user: ""
+      currUser: ""
     }
     this.props = props;
   }
 
   componentDidMount() {
     this.setState({
-      user: localStorage.getItem('instaCloneUser')
+      currUser: localStorage.getItem('instaCloneUser')
     });
   }
 
   render() {
-    console.log("user", this.state.user);
+    // console.log("user", this.state.currUser);
     return (
       <div className="App">
-        <PostsPage user={this.state.user}/>
+        <PostsPage currUser={this.state.currUser}/>
       </div>
     );
   }

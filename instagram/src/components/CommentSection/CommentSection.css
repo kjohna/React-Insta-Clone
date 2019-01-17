@@ -5,6 +5,17 @@
 
 .comment {
   padding-bottom: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.comment-text {
+  width: 90%;
+}
+
+.comment-delete-hide {
+  display: none;
 }
 
 .comment-username {

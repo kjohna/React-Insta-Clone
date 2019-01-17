@@ -18,10 +18,13 @@ class PostsPage extends Component {
   componentDidMount() {
     // console.log("posts page CDM");
     // if we were using an api to get post data, it would happen here:
-    const message = dummyData;
-    // the fetch would call next line once the 'message' data was returned
+    let postData = dummyData;
+    localStorage.getItem('instaCloneData') ? 
+      postData = JSON.parse(localStorage.getItem('instaCloneData')) :
+      localStorage.setItem('instaCloneData', JSON.stringify(postData));
+        // the fetch would call next line once the 'message' data was returned
     this.setState({
-      postData: message
+      postData: postData
     });
   }
 
@@ -39,10 +42,10 @@ class PostsPage extends Component {
   }
 
   render() {
-    // console.log("PostsPage: ", this.state.postData.length);
+    console.log("PostsPage: render");
     const posts = this.state.postData.length > 0 ? 
       this.state.postData.map(post => {
-        return <PostContainer key={post.timestamp} post={post} user={this.props.user}/>
+        return <PostContainer key={post.timestamp} post={post} currUser={this.props.currUser}/>
       }) :
       null;
 

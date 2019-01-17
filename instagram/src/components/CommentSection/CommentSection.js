@@ -14,7 +14,7 @@ class CommentSection extends React.Component {
       commentData: [],
       post: {},
       newCommentText: "",
-      user: this.props.user
+      currUser: this.props.currUser
     };
   }
 
@@ -42,7 +42,7 @@ class CommentSection extends React.Component {
     const updatedPost = this.state.post;
     updatedPost.comments = [...this.state.post.comments,
       {
-        username: this.state.user,
+        username: this.state.currUser,
         text: this.state.newCommentText
       }
     ];
@@ -52,13 +52,33 @@ class CommentSection extends React.Component {
         newCommentText: "" // reset input text
       }
     );
-  }  
+  }
+
+  commentMouseEnter = (e) => {
+    // console.log("comment mouse enter ", e.target);
+  }
+
+  commentMouseLeave = (e) => {
+    // console.log("comment mouse leave ", e.target);
+  }
+
+  commentDelete = (e) => {
+    // console.log("comment delete click ", e.target);
+  }
 
   render() {
     // console.log("comment section state ", Object.keys(this.state.post).length);
     const comments = Object.keys(this.state.post).length ?
       this.state.post.comments.map((commentData, i) => {
-        return <Comment key={i} commentData={commentData} />
+        return <Comment 
+          key={`${i}${commentData.userName}`} 
+          commentID={`${i}${commentData.userName}`} 
+          commentData={commentData} 
+          currUser={this.props.currUser}
+          commentMouseEnter={this.commentMouseEnter}
+          commentMouseLeave={this.commentMouseLeave}
+          deleteOnClick={this.commentDelete}
+          />
       }) :
       null;
 

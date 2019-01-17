@@ -18,7 +18,7 @@ function PostContainer(props) {
         post={props.post}
         commentData={props.post.comments} // shouldn't need this when done
         postTimestamp={props.post.timestamp} // shouldn't need this when done
-        user={props.user}
+        currUser={props.currUser}
       />
     </div>
   );

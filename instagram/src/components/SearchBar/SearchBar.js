@@ -25,7 +25,8 @@ function SearchBar(props) {
         onSubmit={(e)=> {e.preventDefault()}}>
         <input 
           type="text" 
-          placeholder="&#x1F50D; Search"
+          className="search-form-input"
+          placeholder="&#xf002; Search"
           name="searchText"
           onChange={(e) => props.handleSearchInput(e)}
           value={props.searchText}
