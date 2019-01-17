@@ -52,7 +52,7 @@ class PostsPage extends Component {
       null;
 
     return (
-      <div className="posts-page" currUser={this.state.currUser}>
+      <div className="posts-page" curruser={this.state.currUser}>
         <SearchBar 
           handleSearchInput={this.handleSearchInput}
           searchText={this.state.searchText}
