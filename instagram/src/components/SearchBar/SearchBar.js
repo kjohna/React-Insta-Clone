@@ -7,6 +7,11 @@ import profileIcon from '../../assets/profile.png';
 
 import './SearchBar.css';
 
+const logout = (e) => {
+  localStorage.removeItem('instaCloneUser');
+  window.location.reload();
+}
+
 function SearchBar(props) {
 
   return (
@@ -30,7 +35,7 @@ function SearchBar(props) {
       <div className="prefs-icons">
         <img className="prefs-compass" src={compassIcon} alt="" />
         <img className="prefs-heart" src={heartIcon} alt="" />
-        <img className="prefs-profile" src={profileIcon} alt="" />
+        <img className="prefs-profile" src={profileIcon} onClick={logout} alt="Log Out" />
       </div>
 
     </div>

@@ -18,9 +18,11 @@ class Login extends React.Component {
     });
   }
 
-  handleLogin(e) {
+  handleLogin = (e) => {
     // e.preventDefault();
-    console.log("login!", e.target);
+    // console.log("login!", e.target);
+    localStorage.setItem('instaCloneUser', this.state.userNameInput);
+    console.log(localStorage.getItem('instaCloneUser'));
   }
 
   render() {

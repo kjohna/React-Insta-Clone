@@ -5,14 +5,21 @@ const authenticate = App => LoginPage =>
     constructor(props) {
       super();
       this.state = {
-        loggedIn: false
+        loggedIn: false,
+        user: ""
       }
       this.props = props;
       // console.log(this.props);
     }
 
     componentDidMount() {
-      if (localStorage.getItem('userLoggedIn'));
+      const user = localStorage.getItem('instaCloneUser');
+      if (user) {
+        this.setState({
+          loggedIn: true,
+          user: user
+        });
+      };
     }
 
     render() {

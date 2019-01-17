@@ -9,14 +9,14 @@ class App extends Component {
   constructor(props){
     super();
     this.state = {
-      
+      user: ""
     }
     this.props = props;
   }
 
   componentDidMount() {
     this.setState({
-      
+      user: this.props.user
     });
   }
 
