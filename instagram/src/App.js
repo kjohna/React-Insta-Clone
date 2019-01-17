@@ -16,15 +16,15 @@ class App extends Component {
 
   componentDidMount() {
     this.setState({
-      user: this.props.user
+      user: localStorage.getItem('instaCloneUser')
     });
   }
 
   render() {
-
+    console.log("user", this.state.user);
     return (
       <div className="App">
-        <PostsPage />
+        <PostsPage user={this.state.user}/>
       </div>
     );
   }

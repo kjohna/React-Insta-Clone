@@ -6,8 +6,9 @@ import dummyData from '../../dummy-data';
 import './PostContainer.css';
 
 class PostsPage extends Component {
-  constructor(){
+  constructor(props){
     super();
+    this.props = props;
     this.state = {
       postData: [],
       searchText: ''
@@ -41,7 +42,7 @@ class PostsPage extends Component {
     // console.log("PostsPage: ", this.state.postData.length);
     const posts = this.state.postData.length > 0 ? 
       this.state.postData.map(post => {
-        return <PostContainer key={post.timestamp} post={post} />
+        return <PostContainer key={post.timestamp} post={post} user={this.props.user}/>
       }) :
       null;
 

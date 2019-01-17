@@ -13,7 +13,8 @@ class CommentSection extends React.Component {
     this.state = {
       commentData: [],
       post: {},
-      newCommentText: ""
+      newCommentText: "",
+      user: this.props.user
     };
   }
 
@@ -41,7 +42,7 @@ class CommentSection extends React.Component {
     const updatedPost = this.state.post;
     updatedPost.comments = [...this.state.post.comments,
       {
-        username: "testusername",
+        username: this.state.user,
         text: this.state.newCommentText
       }
     ];
