@@ -1,59 +1,35 @@
 import React, { Component } from 'react';
-import PostContainer from './components/PostContainer/PostContainer';
-import SearchBar from './components/SearchBar/SearchBar';
-import dummyData from './dummy-data';
+import authenticate from './components/authentication/authenticate';
+import Login from './components/Login/Login';
+import PostsPage from './components/PostContainer/PostsPage';
 
 import './App.css';
 
 class App extends Component {
-  constructor(){
+  constructor(props){
     super();
     this.state = {
-      postData: [],
-      searchText: ''
+      currUser: ""
     }
+    this.props = props;
   }
 
   componentDidMount() {
-    // if we were using an api to get post data, it would happen here:
-    const message = dummyData;
-    // the fetch would call next line once the 'message' data was returned
     this.setState({
-      postData: message
-    });
-  }
-
-  handleSearchInput = (e) => {
-    console.log("search input ", e.target.value);
-    // if anything in this.state.searchText, filter for username contains searchText otherwise return all posts
-    const searchResults = this.state.searchText.length > 0 ? 
-      dummyData.filter(post => post.username.includes(this.state.searchText))
-    : dummyData;
-
-    this.setState({
-      postData: searchResults,
-      [e.target.name]: e.target.value
+      currUser: localStorage.getItem('instaCloneUser')
     });
   }
 
   render() {
-    console.log(this.state.postData);
-    const posts = this.state.postData.length > 0 ? 
-      this.state.postData.map(post => {
-        return <PostContainer key={post.timestamp} post={post} />
-      }) :
-      null;
-
+    // console.log("user", this.state.currUser);
     return (
       <div className="App">
-        <SearchBar 
-          handleSearchInput={this.handleSearchInput}
-          searchText={this.state.searchText}
-        />
-        {posts}
+        <ConditionalRender/>
       </div>
     );
   }
 }
+
+const ConditionalRender = authenticate(PostsPage)(Login);
 
 export default App;

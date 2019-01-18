@@ -1,16 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './CommentSection.css';
+import styled from 'styled-components';
+
+const CommentStyled = styled.div`
+  padding-bottom: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+`
+const CommentTextStyled = styled.div`
+  width: 90%;
+`
+const CommentUsernameStyled = styled.span`
+  font-weight: bold;
+  margin-right: 5px;
+`
+const CommentDeleteStyled = styled.span`
+  display:none;
+`
 
 function Comment(props) {
-  // console.log(props);
+  // console.log(props); onMouseEnter={commentHover} onMouseLeave={}>
+  let nothing = ()=>null;
+  let commentMouseEnter = nothing;
+  let commentMouseLeave = nothing;
+  if (props.currUser === props.commentData.username) {
+    commentMouseEnter = props.commentMouseEnter;
+    commentMouseLeave = props.commentMouseLeave;
+  }
+  let deleteCommentClass = "comment-delete-hide"
+  if (props.currUser === props.commentData.username) deleteCommentClass = "comment-delete";
   return (
-    <div className="comment">
-      <span className="comment-username">
-        {props.commentData.username}
-      </span>
-        {props.commentData.text}
-    </div>
+    <CommentStyled 
+      className="comment" 
+      onMouseEnter={commentMouseEnter} 
+      onMouseLeave={commentMouseLeave}
+      commentid={props.commentID}
+    > 
+      <CommentTextStyled className="comment-text">
+        <CommentUsernameStyled className="comment-username">
+          {props.commentData.username}
+        </CommentUsernameStyled>
+          {props.commentData.text}
+      </CommentTextStyled>
+      <CommentDeleteStyled className={deleteCommentClass} onClick={props.deleteOnClick}>
+      ×
+      </CommentDeleteStyled>
+    </CommentStyled>
   );
 }
 
