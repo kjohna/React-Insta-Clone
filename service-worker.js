@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/React-Insta-Clone/precache-manifest.26abdaa4a72a4eb950b43efbd02d30c5.js"
+  "/React-Insta-Clone/instagram/precache-manifest.1fdbe338fe3bd34b2fc481ad4947e30e.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/React-Insta-Clone/index.html", {
+workbox.routing.registerNavigationRoute("/React-Insta-Clone/instagram/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
