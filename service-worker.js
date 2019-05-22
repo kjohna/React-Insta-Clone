@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/React-Insta-Clone/precache-manifest.26abdaa4a72a4eb950b43efbd02d30c5.js"
+  "/React-Insta-Clone/precache-manifest.90f7192621c4a28f3eaec9e22622ff02.js"
 );
 
 workbox.clientsClaim();

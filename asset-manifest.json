@@ -1,7 +1,7 @@
 {
   "main.css": "/React-Insta-Clone/static/css/main.422624be.chunk.css",
-  "main.js": "/React-Insta-Clone/static/js/main.28a1c866.chunk.js",
-  "main.js.map": "/React-Insta-Clone/static/js/main.28a1c866.chunk.js.map",
+  "main.js": "/React-Insta-Clone/static/js/main.c36a6578.chunk.js",
+  "main.js.map": "/React-Insta-Clone/static/js/main.c36a6578.chunk.js.map",
   "static/js/1.fd88eff5.chunk.js": "/React-Insta-Clone/static/js/1.fd88eff5.chunk.js",
   "static/js/1.fd88eff5.chunk.js.map": "/React-Insta-Clone/static/js/1.fd88eff5.chunk.js.map",
   "runtime~main.js": "/React-Insta-Clone/static/js/runtime~main.8bea3be1.js",
@@ -12,6 +12,6 @@
   "static/media/compass.svg": "/React-Insta-Clone/static/media/compass.ababa6bd.svg",
   "static/css/main.422624be.chunk.css.map": "/React-Insta-Clone/static/css/main.422624be.chunk.css.map",
   "index.html": "/React-Insta-Clone/index.html",
-  "precache-manifest.26abdaa4a72a4eb950b43efbd02d30c5.js": "/React-Insta-Clone/precache-manifest.26abdaa4a72a4eb950b43efbd02d30c5.js",
+  "precache-manifest.90f7192621c4a28f3eaec9e22622ff02.js": "/React-Insta-Clone/precache-manifest.90f7192621c4a28f3eaec9e22622ff02.js",
   "service-worker.js": "/React-Insta-Clone/service-worker.js"
 }

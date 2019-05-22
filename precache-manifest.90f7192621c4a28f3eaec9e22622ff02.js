@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "28a1c86605eebca1af51",
+    "revision": "c36a65787274acfc9fdb",
     "url": "/React-Insta-Clone/static/css/main.422624be.chunk.css"
   },
   {
-    "revision": "28a1c86605eebca1af51",
-    "url": "/React-Insta-Clone/static/js/main.28a1c866.chunk.js"
+    "revision": "c36a65787274acfc9fdb",
+    "url": "/React-Insta-Clone/static/js/main.c36a6578.chunk.js"
   },
   {
     "revision": "fd88eff52cc966a05bea",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/React-Insta-Clone/static/media/compass.ababa6bd.svg"
   },
   {
-    "revision": "c0e1704d3fd59096e27f37aea571eeaa",
+    "revision": "b0e49d229bb492915c39c5e83de18f81",
     "url": "/React-Insta-Clone/index.html"
   }
 ];
