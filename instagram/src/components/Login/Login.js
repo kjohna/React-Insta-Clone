@@ -12,6 +12,9 @@ const LoginStyled = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  @media (max-width: 600px) {
+    width: 65%;
+  }
 `;
 const LogoStyled = styled.img`
   max-height: 3.5em;
